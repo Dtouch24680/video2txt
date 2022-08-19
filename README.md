@@ -15,9 +15,9 @@ pip install -r requirements.txt
 + numpy
 + pillow
 
-若已有上述环境则跳过
+若已有上述依赖则跳过
 ### 3. 输入
-在assets文件夹下放入原始视频或图片文件(如demo.mp4)
+在assets文件夹下放入原始视频或图片文件(如demo.mp4)，文件名尽量不使用中文
 ### 4. 运行
 直接运行：
 ```shell

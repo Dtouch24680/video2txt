@@ -133,8 +133,9 @@ def generate_video():
         suffix = '.avi'
         fourcc = cv2.VideoWriter_fourcc('X', 'V', 'I', 'D')
     nh, nw, _ = img_set[0].shape  # 注意这里的shape有三个维度，不是单通道
+    full_name = os.path.join(output_dir, opt.name + suffix)
     res_video = cv2.VideoWriter(
-        os.path.join(output_dir, opt.name + suffix),
+        full_name,
         fourcc,
         int(fps + 0.5),  # 四舍五入转整
         (nw, nh)
@@ -145,6 +146,7 @@ def generate_video():
 
     video.release()
     res_video.release()
+    print("转换成功！视频保存为：" + full_name)
 
 
 def generate_pic():
@@ -159,7 +161,9 @@ def generate_pic():
     output_dir = opt.output_dir
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
-    cv.imwrite(os.path.join(output_dir, opt.name + '.jpg'), txt_img)
+    full_name = os.path.join(output_dir, opt.name + '.jpg')
+    cv.imwrite(full_name, txt_img)
+    print("转换成功！图片保存为：" + full_name)
 
 
 if __name__ == '__main__':
